@@ -1,0 +1,61 @@
+﻿@page "{id}"
+@model RentalHouseWebApp.Pages.Houses.EditModel
+@{
+}
+ <form method="post">
+    </div>
+      <div class="form-group">
+        <label asp-for="@Model.Location"></label>
+        <input asp-for="@Model.Location" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Picture"></label>
+        <input asp-for="@Model.Picture" class="form-control" readonly />
+    </div>
+     <div class="form-group">
+ 
+    <label class="form-label" asp-for="@Model.Facilities"> </label>
+    <select  asp-for="@Model.Facilities" class="form-control"  asp-items="@Model.Facility" readonly/> </select>
+
+    </div>
+    <div class="form-group col">
+            <label asp-for="@Model.SelectedOwnerId"></label>
+            <select asp-for="@Model.SelectedOwnerId" asp-items="@Model.ownerList" class="form-select" ></select>
+        </div>
+         
+       
+            <div class="form-group">
+        <label asp-for="@Model.DateofJoining"></label>
+        <input  asp-for="@Model.DateofJoining" class="form-control" readonly />
+    </div>
+   
+       <div class="form-group col">
+            <label asp-for="@Model.Status"></label>
+            <select asp-for="@Model.Status" asp-items="@Model.Selectedstatus" class="form-select"></select>
+        </div>
+          <div class="form-group">
+        <label asp-for="@Model.DateofEnd"></label>
+        <input  asp-for="@Model.DateofEnd" class="form-control" readonly />
+    </div>
+    <div class="form-group col">
+            <label asp-for="@Model.SelectedCustomerId"></label>
+            <select asp-for="@Model.SelectedCustomerId" asp-items="@Model.CustomerList" class="form-select"></select>
+         <div>
+               <div class="form-group">
+        <label asp-for="@Model.Rent"></label>
+        <input  asp-for="@Model.Rent" class="form-control" />
+    </div>
+ <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/Houses/List" class="btn btn-primary col-sm-3" role="button">Back</a>
+    </div>
+
+    <div class="form-group">
+        <h5 class="text-success">@Model.SuccessMessage</h5>
+        <h5 class="text-danger">@Model.ErrorMessage</h5>
+                <h5 class="text-success">@Html.ValidationSummary()</h5>
+
+
+    </div>
+
+</form>

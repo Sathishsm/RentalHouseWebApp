@@ -1,0 +1,57 @@
+﻿@page "{id}"
+@model RentalHouseWebApp.Pages.RentalCustomers.EditModel
+@{
+}
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input type="text" class="form-control" asp-for="@Model.Name" />
+    </div>
+    <div class=form-check>
+        <div>Gender</div>
+        @foreach (var g in Model.Genders)
+        {
+            <input type="radio" asp-for="@Model.Gender" value="@g" />
+            @g
+            <br />
+        }
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.DOB"></label>
+        <input class="form-control" asp-for="@Model.DOB" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.MobileNumber"></label>
+        <input type="number" class="form-control" asp-for="@Model.MobileNumber" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Password"></label>
+        <input  class="form-control" asp-for="@Model.Password" />
+    </div>
+    <div class="form-group">
+        <h6><label asp-for="@Model.PreferedLocation">Location</label></h6>
+        <select asp-for="@Model.PreferedLocation" asp-items="@Model.Locations" class="form-check"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.PermanentAddress"></label>
+        <input  class="form-control" asp-for="@Model.PermanentAddress" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Status"></label>
+        <input  class="form-control" asp-for="@Model.Status" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/RentalCustomers/List" class="btn btn-primary col-sm-3" role="button">Back</a>
+    </div>
+
+    <div class="form-group">
+        <h5 class="text-success">@Model.SuccessMessage</h5>
+        <h5 class="text-success">@Model.ErrorMessage</h5>
+
+    </div>
+</form>

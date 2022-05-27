@@ -1,0 +1,43 @@
+﻿@page "{id}"
+@model RentalHouseWebApp.Pages.Owners.EditModel
+@{
+}
+
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input type="text" class="form-control" asp-for="@Model.Name" />
+    </div>
+  
+    <div class="form-group">
+        <label asp-for="@Model.MobileNumber"></label>
+        <input type="number" class="form-control" asp-for="@Model.MobileNumber" />
+    </div>
+     <div class="form-group">
+        <h6><label asp-for="@Model.ExpectedStatus"></label></h6>
+        <select asp-for="@Model.ExpectedStatus" asp-items="@Model.Status" class="form-check"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Rules"></label>
+        <input  class="form-control" asp-for="@Model.Rules" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.Password"></label>
+        <input  class="form-control" asp-for="@Model.Password" />
+    </div>
+   
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/Owners/List" class="btn btn-primary col-sm-3" role="button">Back</a>
+    </div>
+
+    <div class="form-group">
+        <h5 class="text-success">@Model.SuccessMessage</h5>
+        <h5 class="text-success">@Model.ErrorMessage</h5>
+                <h5 class="text-success">@Html.ValidationSummary()</h5>
+
+
+    </div>
+</form>

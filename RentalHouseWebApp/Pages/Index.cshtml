@@ -1,0 +1,83 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <h4>@Model.ErrorMessage</h4>
+
+    @if (User.IsInRole("admin"))
+    {
+        <div class="row">
+            <div class="col-md-4 col-xl-4">
+                <div class="card bg-c-blue db-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">RentalCustomer</h6>
+                        <h2 class="text-end"><i class="fa fa-person float-start"></i><span>@Model.RentalCustomerCount</span></h2>
+                        <p class="m-b-0">Active <span class="f-right"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-4">
+                <div class="card bg-c-green db-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Owner</h6>
+                        <h2 class="text-end"><i class="fa fa-building float-start"></i><span>@Model.OwnerCount</span></h2>
+                        <p class="m-b-0">Active <span class="float-end"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-4">
+                <div class="card bg-c-pink db-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">House</h6>
+                        <h2 class="text-end"><i class="fa fa-graduation-cap float-start"></i><span>@Model.HouseCount</span></h2>
+                        <p class="m-b-0">Active <span class="float-end"></span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div><h4>Welcome @User.Identity.Name</h4></div>
+    }
+}
+else
+{
+    <div><div><h1>WELCOME TO RENTAL HOUSE BOOKINGS</h1></div><div> <h4>Please click here to <a href="/Login">Login</a> </h4></div></div>
+}
+<form method="post">
+    <div class="text-center">
+        @*@if(HttpContext.User.Identity.IsAuthenticated){
+            <h4 class="display-4">Welcome @HttpContext.User.Identity.Name</h4>
+            <button type="submit" class="btn btn-danger"><i class="fa fa-sign-out">LogOut</i> </button>
+            }
+            else{
+            <h4 >Please click here to <a href="/Login">Login</a> </h4>
+            }
+            </div>*@
+
+        <div>
+
+
+
+
+            @*<div>EmployeeCount: @Model.Dashboard.EmployeeCount</div>
+                <div>DepartmentCount: @Model.Dashboard.DepartmentCount</div>
+                <div>TrainingCount: @Model.Dashboard.TrainingCount</div>
+                <div>CompletedTrainingCount: @Model.Dashboard.CompletedTrainingCount</div>*@
+
+
+
+
+        </div>
+</form>
+

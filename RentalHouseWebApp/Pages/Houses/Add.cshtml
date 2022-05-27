@@ -1,0 +1,67 @@
+﻿@page
+@model RentalHouseWebApp.Pages.Houses.AddModel
+@{
+}
+
+<form method="post">
+    <h3>Add </h3>
+<h3>Add New</h3>
+
+
+ 
+
+     
+     
+    </div>
+      <div class="form-group">
+        <label asp-for="@Model.Location"></label>
+        <Select asp-for="@Model.Location" class="form-control" asp-items="@Model.Locations" ></Select>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Picture"></label>
+        <input asp-for="@Model.Picture" class="form-control" />
+    </div>
+     <div class="form-group">
+ 
+    <label class="form-label" asp-for="@Model.Facilities"> </label>
+    <select  asp-for="@Model.Facilities" class="form-control" asp-items="@Model.Facility"> </select>
+
+    </div>
+    <div class="form-group col">
+            <label asp-for="@Model.SelectedOwnerId"></label>
+            <select asp-for="@Model.SelectedOwnerId" asp-items="@Model.ownerList" class="form-select"></select>
+        </div>
+        <div class="form-group col">
+            <label asp-for="@Model.SelectedCustomerId"></label>
+            <select asp-for="@Model.SelectedCustomerId" asp-items="@Model.CustomerList" class="form-select"></select>
+        </div>
+            <div class="form-group">
+        <label asp-for="@Model.Rent"></label>
+        <input  asp-for="@Model.Rent" class="form-control" />
+    </div>
+            <div class="form-group">
+        <label asp-for="@Model.DateofJoining"></label>
+        <input  asp-for="@Model.DateofJoining" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.DateofEnd"></label>
+        <input  asp-for="@Model.DateofEnd" class="form-control" />
+    </div>
+       <div class="form-group col">
+            <label asp-for="@Model.Status"></label>
+            <select asp-for="@Model.Status" asp-items="@Model.Selectedstatus" class="form-select"></select>
+        </div>
+
+
+
+     <div class="form-group">
+        <h5 class="text-success">@Model.SuccessMessage</h5>
+        <h5 class="text-danger">@Model.ErrorMessage</h5>
+          <h6 class="text-danger">@Html.ValidationSummary()</h6>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success ">SAVE</button>
+        <a href="/Houses/List" class="btn btn-light" role="button">CANCEL</a>
+    </div>
+
+</form>

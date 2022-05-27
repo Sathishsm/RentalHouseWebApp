@@ -1,0 +1,27 @@
+﻿@page "{id}"
+@model RentalHouseWebApp.Pages.Houses.DeleteModel
+@{
+}
+
+<h3>Delete House (@Model.Id)</h3>
+<br/>
+<form method="post" class="text-center">
+    <div class="form-group">
+        <h5>Are you sure you want to Delete House- @Model.Location ?</h5>
+    </div>
+     <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+    </div>
+     <div>
+        @if (Model.ShowButton)
+        {
+            <button type="submit" class="btn btn-danger col-sm-3">Delete</button>        
+            <a href="/Houses/List" class="btn btn-light col-sm-3" role="button">Cancel</a>
+        }
+        else
+        {
+            <a href="/Houses/List" class="btn btn-primary col-sm-3" role="button">Back</a>
+        }
+    </div>
+</form>
